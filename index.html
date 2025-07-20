@@ -28,7 +28,27 @@
 
     p {
       color: #b0b0b0;
+      margin-bottom: 15px;
+    }
+
+    /* Light Mode Button */
+    #light-mode-button {
+      display: inline-block;
       margin-bottom: 30px;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: #121212;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    #light-mode-button:hover {
+      background-color: #f5f5f5;
+      color: #000000;
     }
 
     #r4-widget-form {
@@ -102,6 +122,9 @@
 
   <h1>Welcome To Proxy Web</h1>
   <p>Access the internet securely and freely.</p>
+
+  <!-- Light mode button -->
+  <a href="http://light.tryfreenet24.xyz" target="_blank" id="light-mode-button">ورود به حالت روشن ☀️</a>
 
   <!-- Widget -->
   <div id="r4-widget-form"></div>
