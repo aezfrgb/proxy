@@ -1,68 +1,121 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proxy Web - Dark Mode</title>
+  <title>Proxy Web - Dark/Light Mode</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/495142/proxy.svg" type="image/svg+xml" />
 
   <!-- Widget script -->
   <script async src="https://www.tryfreenet24.xyz/widget/widget.js" data-id="r4-widget-connection"></script>
 
-  <!-- Enhanced Dark Theme CSS -->
+  <!-- Styles -->
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --heading-color: #64b5f6;
+      --button-bg: #ffffff;
+      --button-text: #121212;
+      --button-border: #ffffff;
+      --form-bg: #1e1e1e;
+      --input-border: #2196f3;
+      --input-bg: #121212;
+      --input-text: #ffffff;
+      --button-primary: #2196f3;
+      --button-primary-hover: #1976d2;
+      --credit-color: #999999;
+      --credit-link: #64b5f6;
+      --freedom-color: #ffffff;
+    }
+
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --heading-color: #e53935;
+      --button-bg: #121212;
+      --button-text: #ffffff;
+      --button-border: #121212;
+      --form-bg: #f5f5f5;
+      --input-border: #e53935;
+      --input-bg: #ffffff;
+      --input-text: #000000;
+      --button-primary: #e53935;
+      --button-primary-hover: #c62828;
+      --credit-color: #555555;
+      --credit-link: #e53935;
+      --freedom-color: #000000;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       padding: 50px 20px;
       margin: 0;
       text-align: center;
       line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     h1 {
-      color: #64b5f6;
+      color: var(--heading-color);
       font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
     p {
-      color: #b0b0b0;
+      color: var(--text-color);
       margin-bottom: 20px;
       font-size: 1.2rem;
     }
 
-    /* Light Mode Button */
-    #light-mode-button {
+    #toggle-mode-button {
       display: inline-block;
       margin-bottom: 40px;
       padding: 12px 24px;
-      background-color: #ffffff;
-      color: #121212;
-      border: 2px solid #ffffff;
-      border-radius: 8px;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: 2px solid var(--button-border);
+      border-radius: 12px;
       font-weight: bold;
       font-size: 1.05rem;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease-in-out;
     }
 
-    #light-mode-button:hover {
-      background-color: #f1f1f1;
-      color: #000000;
-      border: 2px solid #ffffff;
-      box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
+    #toggle-mode-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
 
     #r4-widget-form {
       margin: 0 auto;
       max-width: 500px;
-      background-color: #1e1e1e;
+      background-color: var(--form-bg);
       padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      transition: background-color 0.4s ease;
     }
 
     #r4-widget-form small,
@@ -73,47 +126,48 @@
 
     #r4-widget-form input[type="submit"],
     #r4-widget-form button {
-      background-color: #2196f3 !important;
+      background-color: var(--button-primary) !important;
       border: none !important;
       color: white !important;
       padding: 12px 22px !important;
-      border-radius: 6px !important;
+      border-radius: 8px !important;
       font-size: 1rem !important;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
 
     #r4-widget-form input[type="submit"]:hover,
     #r4-widget-form button:hover {
-      background-color: #1976d2 !important;
+      background-color: var(--button-primary-hover) !important;
     }
 
     #r4-widget-form input[type="text"],
     #r4-widget-form input[type="url"],
     #r4-widget-form input,
     #r4-widget-form form {
-      border: 2px solid #2196f3 !important;
+      border: 2px solid var(--input-border) !important;
       border-radius: 6px !important;
       padding: 10px;
       font-size: 1rem;
-      background-color: #121212;
-      color: #ffffff;
+      background-color: var(--input-bg);
+      color: var(--input-text);
+      transition: all 0.3s ease;
     }
 
     #r4-widget-form input[type="text"]:focus,
     #r4-widget-form input[type="url"]:focus {
       outline: none !important;
-      box-shadow: 0 0 6px #2196f3 !important;
+      box-shadow: 0 0 6px var(--input-border) !important;
     }
 
     #custom-credit {
       margin-top: 25px;
       font-size: 0.95rem;
-      color: #999999;
+      color: var(--credit-color);
     }
 
     #custom-credit a {
-      color: #64b5f6;
+      color: var(--credit-link);
       text-decoration: none;
     }
 
@@ -123,28 +177,50 @@
 
     #freedom-message {
       margin-top: 20px;
-      color: #ffffff;
+      color: var(--freedom-color);
       font-size: 1rem;
       font-style: italic;
     }
   </style>
 </head>
 <body>
-
   <h1>Welcome To Proxy Web</h1>
   <p>Access the internet securely and freely.</p>
 
-  <!-- Light mode button -->
-  <a href="https://light.tryfreenet24.xyz/" target="_blank" id="light-mode-button">ورود به حالت روشن ☀️</a>
+  <!-- Mode toggle button -->
+  <button id="toggle-mode-button">ورود به حالت روشن ☀️</button>
 
   <div id="r4-widget-form"></div>
 
   <div id="custom-credit">
-    Made with 💙 by <a href="https://t.me/im_soon" target="_blank">Im_Soon</a><br>
-    💙Telegram 👉 <a href="https://t.me/Vip_fragment_v2ray" target="_blank">@Vip_fragment_v2ray</a>
+    Made with 💙 by <a href="https://t.me/im_soon" target="_blank" rel="noopener noreferrer">Im_Soon</a><br>
+    💙Telegram 👉 <a href="https://t.me/Vip_fragment_v2ray" target="_blank" rel="noopener noreferrer">@Vip_fragment_v2ray</a>
   </div>
 
   <div id="freedom-message">اینترنت آزاد برای همه یا هیچکس</div>
 
+  <!-- Scripts -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-mode-button');
+    const body = document.body;
+
+    function setMode(mode) {
+      body.classList.remove('dark', 'light');
+      body.classList.add(mode);
+      toggleBtn.textContent = mode === 'light' ? 'ورود به حالت تیره 🌒' : 'ورود به حالت روشن ☀️';
+      localStorage.setItem('mode', mode);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const newMode = body.classList.contains('light') ? 'dark' : 'light';
+      setMode(newMode);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedMode = localStorage.getItem('mode') || 'dark';
+      setMode(savedMode);
+      body.classList.add('fade-in');
+    });
+  </script>
 </body>
 </html>
