@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proxy Web</title>
+  <title>Proxy Web - Dark Mode</title>
 
   <!-- Widget script -->
   <script async src="https://www.tryfreenet24.xyz/widget/widget.js" data-id="r4-widget-connection"></script>
 
-  <!-- Final dark theme + blue style + Persian quote -->
+  <!-- Enhanced Dark Theme CSS -->
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,87 +18,98 @@
       padding: 50px 20px;
       margin: 0;
       text-align: center;
+      line-height: 1.6;
     }
 
     h1 {
       color: #64b5f6;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
     p {
       color: #b0b0b0;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
     }
 
     /* Light Mode Button */
     #light-mode-button {
       display: inline-block;
-      margin-bottom: 30px;
-      padding: 10px 20px;
+      margin-bottom: 40px;
+      padding: 12px 24px;
       background-color: #ffffff;
       color: #121212;
-      border-radius: 6px;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1.05rem;
       text-decoration: none;
-      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease-in-out;
     }
 
     #light-mode-button:hover {
-      background-color: #f5f5f5;
+      background-color: #f1f1f1;
       color: #000000;
+      border: 2px solid #ffffff;
+      box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
     }
 
     #r4-widget-form {
       margin: 0 auto;
       max-width: 500px;
       background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
 
-    /* Hide widget credits */
     #r4-widget-form small,
     #r4-widget-form footer,
     #r4-widget-form a[href*="reflect4"] {
       display: none !important;
     }
 
-    /* Blue button */
     #r4-widget-form input[type="submit"],
     #r4-widget-form button {
       background-color: #2196f3 !important;
       border: none !important;
       color: white !important;
-      padding: 10px 20px !important;
+      padding: 12px 22px !important;
       border-radius: 6px !important;
       font-size: 1rem !important;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
-    /* Blue border input */
+    #r4-widget-form input[type="submit"]:hover,
+    #r4-widget-form button:hover {
+      background-color: #1976d2 !important;
+    }
+
     #r4-widget-form input[type="text"],
     #r4-widget-form input[type="url"],
     #r4-widget-form input,
     #r4-widget-form form {
       border: 2px solid #2196f3 !important;
       border-radius: 6px !important;
+      padding: 10px;
+      font-size: 1rem;
+      background-color: #121212;
+      color: #ffffff;
     }
 
     #r4-widget-form input[type="text"]:focus,
     #r4-widget-form input[type="url"]:focus {
       outline: none !important;
-      box-shadow: 0 0 4px #2196f3 !important;
+      box-shadow: 0 0 6px #2196f3 !important;
     }
 
-    /* Credit area */
     #custom-credit {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #888888;
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #999999;
     }
 
     #custom-credit a {
@@ -110,11 +121,11 @@
       text-decoration: underline;
     }
 
-    /* Persian message style */
     #freedom-message {
-      margin-top: 15px;
+      margin-top: 20px;
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-style: italic;
     }
   </style>
 </head>
@@ -124,18 +135,15 @@
   <p>Access the internet securely and freely.</p>
 
   <!-- Light mode button -->
-  <a href="http://light.tryfreenet24.xyz" target="_blank" id="light-mode-button">ورود به حالت روشن ☀️</a>
+  <a href="http://info.tryfreenet24.xyz" target="_blank" id="light-mode-button">ورود به حالت روشن ☀️</a>
 
-  <!-- Widget -->
   <div id="r4-widget-form"></div>
 
-  <!-- Credit + Telegram -->
   <div id="custom-credit">
     Made with 💙 by <a href="https://t.me/im_soon" target="_blank">Im_Soon</a><br>
     💙Telegram 👉 <a href="https://t.me/Vip_fragment_v2ray" target="_blank">@Vip_fragment_v2ray</a>
   </div>
 
-  <!-- Persian message -->
   <div id="freedom-message">اینترنت آزاد برای همه یا هیچکس</div>
 
 </body>
